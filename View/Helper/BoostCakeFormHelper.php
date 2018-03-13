@@ -75,20 +75,30 @@ class BoostCakeFormHelper extends FormHelper {
 			'checkboxDiv' => 'checkbox',
 			'beforeInput' => '',
 			'afterInput' => '',
-			'errorClass' => 'has-error error'
+			'errorClass' => 'has-error error',
+			'labelMarkForRequired' => ' <span class="tx-danger">*</span>',
 		);
-
-		if (isset($options['label']) && is_string($options['label'])) {
-			$options['label'] = array(
-				'text' => $options['label']
-			);
-		}
 
 		$options = Hash::merge(
 			$default,
 			$this->_inputDefaults,
 			$options
 		);
+
+		if (isset($options['label']) && is_string($options['label'])) {
+			if ($this->_extractOption('required', $options) !== false &&
+				$this->_introspectModel($this->model(), 'validates', $this->_fieldName)
+			) {
+				$options['label'] = array(
+					'text' => $options['label'] . $options['labelMarkForRequired'],
+					'escape' => false,
+				);
+			} else {
+				$options['label'] = array(
+					'text' => $options['label']
+				);
+			}
+		}
 
 		$this->_inputOptions = $options;
 
