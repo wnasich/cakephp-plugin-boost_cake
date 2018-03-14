@@ -99,6 +99,7 @@ class BoostCakeFormHelper extends FormHelper {
 				);
 			}
 		}
+		unset($options['labelMarkForRequired']);
 
 		$this->_inputOptions = $options;
 
