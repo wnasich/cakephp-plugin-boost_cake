@@ -65,8 +65,8 @@ class BoostCakeFormHelper extends FormHelper {
 		$default = array(
 			'error' => array(
 				'attributes' => array(
-					'wrap' => 'span',
-					'class' => 'help-block text-danger'
+					'wrap' => 'div',
+					'class' => 'invalid-feedback'
 				)
 			),
 			'wrapInput' => array(
@@ -295,6 +295,15 @@ class BoostCakeFormHelper extends FormHelper {
 		}
 
 		return $out;
+	}
+
+	protected function _initInputField($field, $options = array()) {
+		$result = parent::_initInputField($field, $options);
+		if ($this->tagIsInvalid() !== false) {
+			$result = $this->addClass($result, 'is-invalid');
+		}
+
+		return $result;
 	}
 
 }

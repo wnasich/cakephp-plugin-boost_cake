@@ -384,9 +384,9 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 			array('div' => array('class' => 'input password')),
 			'input' => array(
 				'type' => 'password', 'name' => 'data[Contact][password]',
-				'id' => 'ContactPassword', 'class' => 'input-with-feedback form-error'
+				'id' => 'ContactPassword', 'class' => 'input-with-feedback is-invalid'
 			),
-			array('span' => array('class' => 'help-block text-danger')),
+			array('div' => array('class' => 'invalid-feedback')),
 			'Please provide a password',
 			'/span',
 			'/div',
@@ -409,7 +409,7 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 			array('div' => array('class' => 'input password')),
 			'input' => array(
 				'type' => 'password', 'name' => 'data[Contact][password]',
-				'id' => 'ContactPassword', 'class' => 'input-with-feedback form-error'
+				'id' => 'ContactPassword', 'class' => 'input-with-feedback is-invalid'
 			),
 			'/div',
 			'/div'
@@ -433,13 +433,13 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 			array('div' => array('class' => 'input-append')),
 			'input' => array(
 				'type' => 'password', 'name' => 'data[Contact][password]',
-				'id' => 'ContactPassword', 'class' => 'form-error'
+				'id' => 'ContactPassword', 'class' => 'is-invalid'
 			),
 			array('span' => array('class' => 'add-on')),
 			'AddOn',
 			'/span',
 			'/div',
-			array('span' => array('class' => 'help-block text-danger')),
+			array('div' => array('class' => 'invalid-feedback')),
 			'Please provide a password',
 			'/span',
 			'/div',
