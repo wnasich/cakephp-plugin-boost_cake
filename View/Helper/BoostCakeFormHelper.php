@@ -66,7 +66,7 @@ class BoostCakeFormHelper extends FormHelper {
 			'error' => array(
 				'attributes' => array(
 					'wrap' => 'div',
-					'class' => 'invalid-feedback'
+					'class' => 'is-invalid'
 				)
 			),
 			'wrapInput' => array(
