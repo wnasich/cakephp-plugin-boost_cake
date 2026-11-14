@@ -20,7 +20,7 @@ class BoostCakeHtmlHelper extends HtmlHelper {
 			unset($args[3]['class']);
 		}
 
-		$html = call_user_func_array(array('parent', 'useTag'), $args);
+		$html = parent::useTag(...$args);
 
 		if ($tag === 'radio') {
 			$regex = '/(<label)(.*?>)/';
